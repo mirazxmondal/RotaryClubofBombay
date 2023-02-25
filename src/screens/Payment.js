@@ -46,7 +46,7 @@ const PayMembership = () => {
         </Text>
         <Image
           style={{ height: 200, width: 200, marginTop: 50 }}
-          source={require("../../assets/Qr.png")}
+          source={require("../../assets/qr.png")}
         />
       </View>
       <View style={{ alignItems: "center", marginTop: 20 }}>
