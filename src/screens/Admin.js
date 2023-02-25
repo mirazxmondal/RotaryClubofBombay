@@ -83,7 +83,7 @@ export default function AdminGenerate() {
       <Button
         title="Generate Excel"
         onPress={() =>
-          Linking.openURL("https://adminpanel-tau.vercel.app/sign-in")
+          Linking.openURL("https://rotary-clubof-bombay-admin-9bkimywnb-miraz-mondal.vercel.app/sign-in")
         }
       />
       <StatusBar style="auto" />
