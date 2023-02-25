@@ -62,7 +62,7 @@ const Donate = () => {
         </Text>
         <Image
           style={{ height: 200, width: 200, marginTop: 30 }}
-          source={require("../../assets/Qr.png")}
+          source={require("../../assets/qr.png")}
         />
       </View>
       <View style={{ alignItems: "center", marginTop: 20 }}>
