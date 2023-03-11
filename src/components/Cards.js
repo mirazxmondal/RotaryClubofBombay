@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
+import Icon from "react-native-vector-icons/FontAwesome";
 import { auth } from "../../firebase/firebase";
 
 const Cards = ({ value }) => {
@@ -16,34 +17,45 @@ const Cards = ({ value }) => {
       index: "3",
       name: "HOME",
       listner: " ",
+      iconName: "home",
     },
     {
       index: "1",
       name: "PAY",
       listner: " ",
+      iconName: "money",
     },
     {
       index: "2",
       name: "DONATE",
       listner: " ",
+      iconName: "gratipay",
+    },
+    {
+      index: "7",
+      name: "EVENTS",
+      listner: " ",
+      iconName: "calendar",
     },
 
     {
       index: "4",
       name: "HELPDESK",
       listner: " ",
+      iconName: "question-circle",
     },
     {
       index: "5",
       name: "ABOUT",
       listner: " ",
+      iconName: "info-circle",
     },
 
-    {
-      index: "7",
-      name: "SIGN OUT",
-      listner: "handleSignOut",
-    },
+    // {
+    //   index: "7",
+    //   name: "SIGN OUT",
+    //   listner: "handleSignOut",
+    // },
   ];
 
   const navigation = useNavigation();
@@ -74,7 +86,7 @@ const Cards = ({ value }) => {
       navigation.replace("About");
     }
     if (index == 7) {
-      handleSignOut();
+      navigation.replace("Events");
     }
     console.log(index);
   };
@@ -98,8 +110,8 @@ const Cards = ({ value }) => {
       data={names}
       style={{
         width: 300,
-        backgroundColor: "#FFEF00",
-        borderRadius: 15,
+        backgroundColor: "#91A3B0",
+        borderRadius: 5,
         zIndex: 5,
       }}
       renderItem={({ item }) => {
@@ -109,6 +121,7 @@ const Cards = ({ value }) => {
             // onPress={onPress(item.index)}
             style={[styles.card, styles.shadowProp]}
           >
+            <Icon name={item.iconName} size={30} />
             <Text style={styles.cardText}>{item.name}</Text>
           </TouchableOpacity>
         );
@@ -121,24 +134,28 @@ export default Cards;
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
     backgroundColor: "#FFFFFF",
-    width: "80%",
+    flexDirection: "row",
+    width: "95%",
     height: 80,
-    padding: 0,
-    borderRadius: 20,
+    paddingLeft: 25,
+    borderRadius: 10,
     alignItems: "center",
-    justifyContent: "center",
-    marginLeft: 28,
+    justifyContent: "flex-start",
+    marginLeft: 5,
     borderColor: "gray",
     border: 1,
     // position: "absolute",
-    bottom: 5,
-    marginTop: 20,
+    bottom: 0,
+    // marginTop: 0,
   },
   cardText: {
     fontWeight: "500",
-    fontSize: 22,
-    color: "#FFA500",
+    fontSize: 26,
+    color: "black",
+    textAlign: "left",
+    marginLeft: 10,
   },
   shadowProp: {
     marginTop: 20,

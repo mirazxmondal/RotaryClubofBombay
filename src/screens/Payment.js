@@ -18,34 +18,35 @@ const PayMembership = () => {
     <KeyboardAwareScrollView
       style={{ backgroundColor: "white", height: "100%" }}
     >
-      <View style={{ marginBottom: 20, left: 10, top: 50, zIndex: 10 }}>
-        <Icon
-          name="arrowleft"
-          size={30}
-          color={"#ffdf00"}
-          onPress={() => navigation.replace("Transaction")}
-        />
-      </View>
+      <Icon
+        name="leftcircle"
+        size={30}
+        color={"#FFA500"}
+        style={{ top: 5, left: 10, zIndex: 1, position: "absolute" }}
+        onPress={() => navigation.replace("Transaction")}
+      />
+
       <View
         style={{
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "white",
-          padding: 30,
+          padding: 26,
         }}
       >
         <Text
           style={{
             top: 1,
             position: "absolute",
-            fontSize: 50,
+            fontSize: 32,
             color: "#FFA500",
+            fontWeight: "bold",
           }}
         >
           PAY
         </Text>
         <Image
-          style={{ height: 200, width: 200, marginTop: 50 }}
+          style={{ height: 300, width: 300, marginTop: 50 }}
           source={require("../../assets/qr.png")}
         />
       </View>
@@ -53,19 +54,24 @@ const PayMembership = () => {
         <Text style={{ color: "black" }}>Pay Membership Due</Text>
         <TextInput
           style={{
-            borderColor: "#ffdf00",
+            borderColor: "#FFA500",
             borderWidth: 3,
             width: "60%",
             padding: 5,
+            paddingHorizontal: 20,
             borderRadius: 15,
           }}
+          placeholder="Enter Amount"
           // value={}
           onChangeText={(amount) => setAmount(amount)}
           keyboardType="numeric"
         ></TextInput>
       </View>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.replace("ThankYou1")}
+        >
           <Text style={styles.buttonText}>Paid</Text>
         </TouchableOpacity>
       </View>

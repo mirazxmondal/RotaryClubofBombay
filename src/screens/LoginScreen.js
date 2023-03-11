@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  ScrollView,
   View,
 } from "react-native";
 import Header from "../components/Header";
@@ -42,10 +43,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.container}
-      behavior="padding"
-    >
+    <ScrollView contentContainerStyle={styles.container} behavior="padding">
       <Header />
       <View style={styles.inputContainer}>
         <TextInput
@@ -74,25 +72,37 @@ const LoginScreen = () => {
           }}
         >
           <TouchableOpacity onPress={handleSignIn} style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigator.replace("Register")}
-            style={[styles.button, styles.buttonOutline]}
-          >
-            <Text style={styles.buttonOutlineText}>Register</Text>
+            <Text style={styles.buttonText}>Login as User</Text>
           </TouchableOpacity>
         </View>
-        <View style={{ paddingTop: 80 }}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 20,
+          }}
+        >
           <TouchableOpacity
             onPress={() => navigator.replace("AdminLogin")}
-            style={[styles.button1, styles.buttonOutline1]}
+            style={styles.button}
           >
-            <Text style={styles.buttonOutlineText1}>Login As Admin</Text>
+            <Text style={styles.buttonText}>Login As Admin</Text>
           </TouchableOpacity>
         </View>
+
+        {/* <TouchableOpacity
+          onPress={() => navigator.replace("AdminLogin")}
+          style={[styles.button1, styles.buttonOutline1]}
+        >
+          <Text style={styles.buttonOutlineText1}>Login As Admin</Text>
+        </TouchableOpacity> */}
       </View>
-    </KeyboardAwareScrollView>
+      <Text style={{ color: "white", bottom: 150, position: "absolute" }}>
+        Copyright ©Bombay Rotary Club
+      </Text>
+    </ScrollView>
   );
 };
 
@@ -100,11 +110,13 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    position: "relative",
-    backgroundColor: "white",
+    // position: "relative",
+    backgroundColor: "#0782F9",
+    paddingBottom: 190,
+    paddingTop: 100,
   },
   inputContainer: {
     width: "80%",
@@ -116,17 +128,17 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginTop: 25,
     borderWidth: 2,
-    borderColor: "#ffdf00",
+    borderColor: "#FFA500",
   },
   buttonContainer: {
-    width: "60%",
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 40,
   },
   button: {
-    backgroundColor: "#ffdf00",
-    width: "50%",
+    backgroundColor: "#FFA500",
+    width: "60%",
     height: 60,
     padding: 15,
     borderRadius: 40,
@@ -138,7 +150,7 @@ const styles = StyleSheet.create({
   buttonOutline: {
     backgroundColor: "white",
     marginTop: 5,
-    borderColor: "#ffdf00",
+    borderColor: "#FFA500",
     borderWidth: 2,
   },
   buttonText: {
@@ -147,24 +159,26 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   buttonOutlineText: {
-    color: "#ffdf00",
+    color: "#FFA500",
     fontWeight: "700",
     fontSize: 16,
   },
   button1: {
     backgroundColor: "#0782F9",
-    width: 200,
+    width: "60%",
     height: 60,
     padding: 15,
     borderRadius: 40,
     alignItems: "center",
-    // marginBottom: 20,
+    justifyContent: "center",
+    marginTop: 20,
+    marginLeft: 15,
   },
   buttonOutline1: {
     backgroundColor: "#F79AC0",
     marginTop: 5,
-    borderColor: "#F79AC0",
-    borderWidth: 2,
+    // borderColor: "#F79AC0",
+    // borderWidth: 2,
   },
   buttonOutlineText1: {
     color: "white",

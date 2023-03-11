@@ -77,19 +77,21 @@ export default function AdminGenerate() {
       >
         WELCOME ADMIN
       </Text>
-      <Text style={{ position: "absolute", top: 300, fontSize: 17 }}>
-        Click here to generate Excel 👇
+      <Text style={{ position: "absolute", top: 300, fontSize: 22 }}>
+        Click here to generate Excel
       </Text>
-      <Button
-        title="Generate Excel"
+      <TouchableOpacity
+        style={{ backgroundColor: "#3ba0fc", padding: 15, borderRadius: 12 }}
         onPress={() =>
-          Linking.openURL("https://rotary-clubof-bombay-admin-9bkimywnb-miraz-mondal.vercel.app/sign-in")
+          Linking.openURL("https://rotary-clubof-bombay-admin.vercel.app/")
         }
-      />
+      >
+        <Text style={{ color: "white" }}>Generate Excel</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
       <View
         style={{
-          backgroundColor: "yellow",
+          backgroundColor: "#FFA500",
           padding: 20,
           borderRadius: 50,
           // marginTop: 80,
@@ -99,8 +101,8 @@ export default function AdminGenerate() {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity onPress={handleSignOut}>
-          <Text>Sign out</Text>
+        <TouchableOpacity onPress={handleSignOut} style={{ zIndex: 10 }}>
+          <Text style={{ fontSize: 18, color: "white" }}>Sign out</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -110,7 +112,7 @@ export default function AdminGenerate() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#86c5fd",
     alignItems: "center",
     justifyContent: "center",
   },

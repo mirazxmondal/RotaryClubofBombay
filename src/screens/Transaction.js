@@ -13,6 +13,7 @@ import Header from "../components/Header";
 // import About from "./About";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Icon2 from "react-native-vector-icons/AntDesign";
+import Icon3 from "react-native-vector-icons/MaterialIcons";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { auth, db } from "../../firebase/firebase";
 // import DonateMoney from "./DonateMoney";
@@ -57,6 +58,15 @@ const TransactionHistory = () => {
     );
   };
 
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("Login");
+      })
+      .catch((error) => alert(error.message));
+  };
+
   return (
     <View style={styles.container}>
       <Text
@@ -70,17 +80,32 @@ const TransactionHistory = () => {
         {` WELCOME : ${auth.currentUser.email} `}
       </Text>
       {!hamberger && (
-        <Icon
-          style={{ marginLeft: 5 }}
-          name="bars"
-          size={35}
-          onPress={() => setHamberger(true)}
-        />
+        <>
+          <Icon
+            style={{ marginLeft: 5 }}
+            name="bars"
+            size={35}
+            onPress={() => setHamberger(true)}
+          />
+          <Icon3
+            name="logout"
+            size={40}
+            style={{ position: "absolute", top: 20, right: 10, marginRight: 5 }}
+            onPress={handleSignOut}
+          />
+        </>
       )}
       {hamberger && (
         <View style={{ position: "relative" }}>
           <Icon2
-            style={{ position: "absolute", top: 2, right: 116, zIndex: 15 }}
+            style={{
+              position: "absolute",
+              top: 2,
+              right: 110,
+              zIndex: 15,
+              borderWidth: 0.5,
+              borderColor: "black",
+            }}
             name="close"
             size={20}
             color="black"
@@ -109,8 +134,8 @@ const TransactionHistory = () => {
           >
             Transaction History
           </Text>
-          <View style={{ justifyContent: "center", alignItems: "center" }}>
-            <View
+          <View>
+            {/* <View
               style={{
                 padding: 20,
                 width: "80%",
@@ -134,6 +159,164 @@ const TransactionHistory = () => {
                 600
               </Text>
               <Text style={{ fontSize: 20, color: "white" }}>To</Text>
+            </View> */}
+            <View
+              style={{
+                borderBottomColor: "gray",
+                borderBottomWidth: 0.5,
+                paddingHorizontal: 10,
+              }}
+            >
+              <>
+                <Text
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "600",
+                    fontSize: 18,
+                    paddingBottom: 8,
+                  }}
+                >
+                  {" "}
+                  2022
+                </Text>
+              </>
+              <>
+                {/* <Text
+                  style={{ textAlign: "right", fontSize: 16, marginRight: 12 }}
+                >
+                  money
+                </Text> */}
+              </>
+            </View>
+            <View
+              style={{
+                borderBottomColor: "gray",
+                borderBottomWidth: 0.5,
+                paddingHorizontal: 10,
+                justifyContent: "center",
+              }}
+            >
+              <View>
+                <Text
+                  style={{
+                    textAlign: "left",
+                    fontSize: 18,
+                    fontWeight: "600",
+                    color: "green",
+                  }}
+                >
+                  ₨ 600.00
+                </Text>
+              </View>
+              <View>
+                <Text style={{ textAlign: "right", fontSize: 15 }}>
+                  Mar 10, 2022
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                borderBottomColor: "gray",
+                borderBottomWidth: 0.5,
+                paddingHorizontal: 10,
+                justifyContent: "center",
+              }}
+            >
+              <View>
+                <Text
+                  style={{
+                    textAlign: "left",
+                    fontSize: 18,
+                    fontWeight: "600",
+                    color: "green",
+                  }}
+                >
+                  ₨ 400.00
+                </Text>
+              </View>
+              <View>
+                <Text style={{ textAlign: "right", fontSize: 15 }}>
+                  Apr 12, 2022
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                borderBottomColor: "gray",
+                borderBottomWidth: 0.5,
+                paddingHorizontal: 10,
+                justifyContent: "center",
+              }}
+            >
+              <View>
+                <Text
+                  style={{
+                    textAlign: "left",
+                    fontSize: 18,
+                    fontWeight: "600",
+                    color: "green",
+                  }}
+                >
+                  ₨ 300.00
+                </Text>
+              </View>
+              <View>
+                <Text style={{ textAlign: "right", fontSize: 15 }}>
+                  May 03, 2022
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                borderBottomColor: "gray",
+                borderBottomWidth: 0.5,
+                paddingHorizontal: 10,
+                justifyContent: "center",
+              }}
+            >
+              <View>
+                <Text
+                  style={{
+                    textAlign: "left",
+                    fontSize: 18,
+                    fontWeight: "600",
+                    color: "green",
+                  }}
+                >
+                  ₨ 1600.00
+                </Text>
+              </View>
+              <View>
+                <Text style={{ textAlign: "right", fontSize: 15 }}>
+                  Jun 08 , 2022
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                borderBottomColor: "gray",
+                borderBottomWidth: 0.5,
+                paddingHorizontal: 10,
+                justifyContent: "center",
+              }}
+            >
+              <View>
+                <Text
+                  style={{
+                    textAlign: "left",
+                    fontSize: 18,
+                    fontWeight: "600",
+                    color: "green",
+                  }}
+                >
+                  ₨ 900.00
+                </Text>
+              </View>
+              <View>
+                <Text style={{ textAlign: "right", fontSize: 15 }}>
+                  Jul 15, 2022
+                </Text>
+              </View>
             </View>
           </View>
         </View>

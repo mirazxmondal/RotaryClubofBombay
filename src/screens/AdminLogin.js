@@ -7,11 +7,13 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ScrollView,
 } from "react-native";
 import Header2 from "../components/Header2";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
+import { Icon } from "react-native-vector-icons/Entypo";
 
 const AdminLogin = () => {
   const navigator = useNavigation();
@@ -42,11 +44,9 @@ const AdminLogin = () => {
   };
 
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.container}
-      behavior="padding"
-    >
+    <ScrollView contentContainerStyle={styles.container} behavior="padding">
       <Header2 />
+      {/* <Icon name={"triangle-left"} size={30} /> */}
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
@@ -73,7 +73,10 @@ const AdminLogin = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </KeyboardAwareScrollView>
+      <Text style={{ color: "white", bottom: 100, position: "absolute" }}>
+        Copyright ©Bombay Rotary Club
+      </Text>
+    </ScrollView>
   );
 };
 
@@ -81,11 +84,14 @@ export default AdminLogin;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-    backgroundColor: "white",
+    backgroundColor: "#0782F9",
+    marginTop: 0,
+    paddingBottom: 190,
+    paddingTop: 100,
   },
   inputContainer: {
     width: "80%",
@@ -97,7 +103,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginTop: 25,
     borderWidth: 2,
-    borderColor: "yellow",
+    borderColor: "#FFA500",
   },
   buttonContainer: {
     width: "60%",
@@ -141,9 +147,9 @@ const styles = StyleSheet.create({
     // marginBottom: 20,
   },
   buttonOutline1: {
-    backgroundColor: "#F79AC0",
+    backgroundColor: "#FFA500",
     marginTop: 5,
-    borderColor: "#F79AC0",
+    borderColor: "#FFA500",
     borderWidth: 2,
   },
   buttonOutlineText1: {

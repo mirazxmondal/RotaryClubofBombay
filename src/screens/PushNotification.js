@@ -72,8 +72,8 @@ export default function PushNotification() {
 async function schedulePushNotification() {
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "You've got mail! 📬",
-      body: "Here is the notification body",
+      title: "Monthly Remainder",
+      body: "Please pay your monthly due amount",
       data: { data: "goes here" },
     },
     trigger: { seconds: 2 },

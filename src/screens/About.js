@@ -7,26 +7,31 @@ const About = () => {
   const navigation = useNavigation();
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "white", marginTop: 15 }}
+      style={{
+        flex: 1,
+        backgroundColor: "white",
+        marginTop: 0,
+        marginHorizontal: 10,
+      }}
       contentContainerStyle={{ justifyContent: "space-evenly" }}
     >
-      <View style={{ marginBottom: 20, left: 10, top: 52, zIndex: 15 }}>
-        <Icon
-          name="arrowleft"
-          size={30}
-          color={"#ffdf00"}
-          onPress={() => navigation.replace("Transaction")}
-        />
-      </View>
+      <Icon
+        name="leftcircle"
+        size={26}
+        color={"#FFA500"}
+        style={{ top: 5, left: 10, zIndex: 1, position: "absolute" }}
+        onPress={() => navigation.replace("Transaction")}
+      />
+
       <Text
         style={{
           textAlign: "center",
           color: "#FFA500",
           fontSize: 25,
-          fontWeight: "700",
+          fontWeight: "bold",
         }}
       >
-        About Rotary Club Of Bombay{" "}
+        ABOUT US
       </Text>
       <View style={{ alignItems: "center" }}>
         <Image source={require("../../assets/rotary-club-logo-1.jpeg")} />
@@ -37,7 +42,7 @@ const About = () => {
           margin: 5,
           textAlign: "justify",
           color: "black",
-          fontSize: 14,
+          fontSize: 18,
           lineHeight: 20,
         }}
       >
@@ -57,7 +62,7 @@ const About = () => {
           margin: 5,
           textAlign: "justify",
           color: "black",
-          fontSize: 14,
+          fontSize: 18,
           lineHeight: 20,
         }}
       >
@@ -75,7 +80,7 @@ const About = () => {
           margin: 5,
           textAlign: "justify",
           color: "black",
-          fontSize: 14,
+          fontSize: 18,
           lineHeight: 20,
         }}
       >
@@ -99,7 +104,7 @@ const About = () => {
           margin: 5,
           textAlign: "justify",
           color: "black",
-          fontSize: 14,
+          fontSize: 18,
           lineHeight: 20,
         }}
       >
@@ -117,7 +122,7 @@ const About = () => {
           margin: 5,
           textAlign: "justify",
           color: "black",
-          fontSize: 14,
+          fontSize: 18,
           lineHeight: 20,
         }}
       >

@@ -18,23 +18,24 @@ const HelpDesk = () => {
   const navigation = useNavigation();
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "white" }}
+      style={{ flex: 1, backgroundColor: "white", marginTop: 0 }}
       contentContainerStyle={{ justifyContent: "space-evenly" }}
     >
-      <View style={{ marginBottom: 20, left: 10, top: 20 }}>
-        <Icon
-          name="arrowleft"
-          size={30}
-          color={"yellow"}
-          onPress={() => navigation.replace("Transaction")}
-        />
-      </View>
+      <Icon
+        name="leftcircle"
+        size={30}
+        color={"#FFA500"}
+        style={{ top: 5, left: 10, zIndex: 1, position: "absolute" }}
+        onPress={() => navigation.replace("Transaction")}
+      />
+
       <Text
         style={{
           textAlign: "center",
           color: "orange",
           fontSize: 25,
-          fontWeight: "700",
+          fontWeight: "bold",
+          marginBottom: 10,
         }}
       >
         CONTACT US
@@ -47,6 +48,12 @@ const HelpDesk = () => {
       <Text style={styles.content}> B Wing, 9th Floor, Nariman Point </Text>
       <Text style={styles.content}>Mumbai – 400021,</Text>
       <Text style={styles.content}>India.</Text>
+      <View style={{ marginTop: 40 }}>
+        <Text style={{ textAlign: "center", fontSize: 28, fontWeight: "600" }}>
+          {" "}
+          Visit our page:{" "}
+        </Text>
+      </View>
       <View
         style={{
           flex: 1,
@@ -58,13 +65,13 @@ const HelpDesk = () => {
       >
         <Facebook
           name="facebook"
-          style={{ color: "#3b5998", marginHorizontal: 20 }}
+          style={{ color: "#3b5998", marginHorizontal: 35 }}
           size={40}
           onPress={() => Linking.openURL("https://www.facebook.com/rcb1929")}
         />
         <Twitter
           name="twitter-with-circle"
-          style={{ color: "#00acee", marginHorizontal: 20 }}
+          style={{ color: "#00acee", marginHorizontal: 35 }}
           size={40}
           onPress={() => Linking.openURL("https://twitter.com/rcb1929")}
         />
@@ -78,7 +85,7 @@ const HelpDesk = () => {
           onPress={() => Linking.openURL("https://www.instagram.com/rcb1929/")}
         >
           <Image
-            style={{ height: 50, width: 50, marginHorizontal: 20 }}
+            style={{ height: 50, width: 50, marginHorizontal: 35 }}
             source={require("../../assets/insta.png")}
           />
         </TouchableOpacity>
@@ -93,7 +100,7 @@ const styles = StyleSheet.create({
   content: {
     textAlign: "center",
     color: "black",
-    fontSize: 22,
+    fontSize: 26,
     lineHeight: 30,
   },
 });

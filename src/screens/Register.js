@@ -5,6 +5,7 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/AntDesign";
@@ -53,30 +54,37 @@ const Register = () => {
   };
 
   return (
-    <KeyboardAwareScrollView
+    <ScrollView
       contentContainerStyle={{
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "white",
+        backgroundColor: "#0782F9",
         paddingTop: 50,
-        paddingBottom: 70,
+        paddingBottom: 190,
       }}
     >
       <View>
-        <View style={{ position: "absolute", top: -20, right: 200 }}>
+        <View style={{ position: "absolute", top: 5, right: 200 }}>
           <Icon
-            color={"#f4c430"}
+            color={"#FFA500"}
             size={30}
-            name={"arrowleft"}
-            onPress={() => navigator.replace("Login")}
+            name="leftcircle"
+            onPress={() => navigator.replace("GetStarted")}
           />
         </View>
-        <Text style={{ fontSize: 20, fontWeight: "800", color: "#f4c430" }}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontWeight: "800",
+            color: "#FFA500",
+            paddingBottom: 40,
+          }}
+        >
           Sign up
         </Text>
       </View>
       <Image
-        style={{ height: 200, width: 220 }}
+        style={{ height: 220, width: 300, borderRadius: 25 }}
         source={require("../../assets/SignUp.jpg")}
       />
       <View style={styles.inputContainer}>
@@ -115,7 +123,10 @@ const Register = () => {
           <Text style={styles.buttonOutlineText1}>Register</Text>
         </TouchableOpacity>
       </View>
-    </KeyboardAwareScrollView>
+      <Text style={{ color: "white", bottom: 130, position: "absolute" }}>
+        Copyright ©Bombay Rotary Club
+      </Text>
+    </ScrollView>
   );
 };
 
@@ -127,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-    backgroundColor: "white",
+    backgroundColor: "#0782F9",
   },
   inputContainer: {
     width: "80%",
@@ -139,7 +150,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginTop: 25,
     borderWidth: 2,
-    borderColor: "yellow",
+    borderColor: "#FFA500",
   },
   button1: {
     backgroundColor: "#0782F9",
@@ -151,10 +162,10 @@ const styles = StyleSheet.create({
     // marginBottom: 20,
   },
   buttonOutline1: {
-    backgroundColor: "#f4c430",
+    backgroundColor: "#FFA500",
     marginTop: 5,
-    borderColor: "#e1ad01",
-    borderWidth: 3,
+    borderColor: "#FFA500",
+    borderWidth: 2,
   },
   buttonOutlineText1: {
     color: "white",
